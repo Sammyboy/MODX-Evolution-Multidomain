@@ -1,0 +1,62 @@
+MODX Evolution Multidomain plugin
+---------------------------------
+
+Die Multidomain-Erweiterung für MODX Evolution ermöglicht das Verwalten von mehreren Domänen in einer MODX-Installation.
+
+
+Installationsanleitung
+----------------------
+
+1. "assets/lib/DocumentParser_Extended.php" und "assets/lib/multidomain.check_index.php" kopieren und nicht verändern
+
+   Nur wenn man die "domains.xml" in einem anderen Ordner haben will oder anders
+   benennen will, kann man die Variable $xml_file anpassen.
+
+2. "assets/files/domains.xml" kopieren und bearbeiten (selbsterklärend)
+
+3. Neues PlugIn für die automatische Aktualisierung der index-php-Dateien erstellen
+
+    Name: multidomainUpdate
+
+    Code:
+        include MODX_BASE_PATH."assets/lib/multidomain.check_index.php";
+
+    Systemereignisse:
+        OnManagerLogin
+
+!!! ACHTUNG: Für eine automatische Aktualisierung muss MODX Schreibrechte auf den Installations-Ordner (MODX-Root) und "/manager" haben. !!!
+
+
+4. .htaccess anpassen
+
+    a. "domain.xml" vor Zugriff über den Browser schützen
+    b. "www" vor die Domänen setzen
+
+    # a. Zugriff auf domains.xml über http unterbinden
+    <files 'domains.xml'>
+        order allow,deny
+        deny from all
+    </files>
+
+
+    # b. vor dem Block von modx "For Friendly Urls"
+    
+    # http://domain1.de > http://www.domain1.de
+    RewriteCond %{HTTP_HOST} .
+    RewriteCond %{HTTP_HOST} ^domain1\.de [NC]
+    RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
+    
+    # http://domain2.de > http://www.domain2.de
+    RewriteCond %{HTTP_HOST} .
+    RewriteCond %{HTTP_HOST} ^domain2\.de [NC]
+    RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    !!! ACHTUUNG: Subdomänen wie sub1.domain1.de oder sub2.domain1.de brauchen keine Umschreibung. !!!
+    
+    
+    Optional: Pauschale Weiterleitung von http://beliebigedomain.tld nach http://www.beliebigedomain.tld
+    !!! ACHTUNG: Das passt, wenn man nur www.* Domänen hat !!!
+    
+    RewriteCond %{HTTP_HOST} .
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]

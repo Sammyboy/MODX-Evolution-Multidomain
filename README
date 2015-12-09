@@ -1,0 +1,61 @@
+MODX Evolution Multidomain plugin
+---------------------------------
+
+The Multidomain plugin for MODX Evolution enables to manage multiple domains with one MODX installation.
+
+
+Install instructions
+--------------------
+
+1. Copy the assets folder into your MODX Evolution installation folder
+
+   If you want to rename of "domains.xml" or move the file into a different folder, you will need to change the value of $xml_file variable.
+
+2. Edit the file "assets/files/domains.xml" (self explaining) to setup your domain settings
+
+3. Create a new plugin for automatic change and updating index.php files
+
+    Name: multidomainUpdate
+
+    Code:
+        include MODX_BASE_PATH."assets/lib/multidomain.check_index.php";
+
+    Events:
+        OnManagerLogin
+
+!!! NOTE: The root folder and the /manager folder must be writeable by MODX !!!
+
+
+4. Edit .htaccess file
+
+    a. to hide "domain.xml" from the webbrowser
+    b. to set the prefix "www" for the domain
+
+    # a. hide "domain.xml" from the webbrowser
+    <files 'domains.xml'>
+        order allow,deny
+        deny from all
+    </files>
+
+
+    # b. before the section "For Friendly Urls"
+    
+    # http://domain1.com > http://www.domain1.com
+    RewriteCond %{HTTP_HOST} .
+    RewriteCond %{HTTP_HOST} ^domain1\.com [NC]
+    RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
+    
+    # http://domain2.com > http://www.domain2.com
+    RewriteCond %{HTTP_HOST} .
+    RewriteCond %{HTTP_HOST} ^domain2\.com [NC]
+    RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    !!! NOTE: Subdomains like sub1.domain1.com or sub2.domain1.com don't need no redirection. !!!
+    
+    
+    Optional: General redirection from http://mydomain.tld to http://www.mydomain.tld
+    !!! NOTE: Do this only if you don't have any subdomains. !!!
+    
+    RewriteCond %{HTTP_HOST} .
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
