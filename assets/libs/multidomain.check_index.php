@@ -97,7 +97,7 @@ ExtendIndexFile(array(
   
   'search'        => "\$modx = new DocumentParser;",
   
-  'replace'       => "include_once MODX_BASE_PATH.'assets/lib/DocumentParser_Extended.php';\n".
+  'replace'       => "include_once MODX_BASE_PATH.'assets/libs/DocumentParser_Extended.php';\n".
                      "\$modx = new DocumentParser_Extended();\n".
                      "\$modx->getSites();"
 ));
@@ -110,7 +110,7 @@ ExtendIndexFile(array(
                      "\$modx->loadExtension(\"ManagerAPI\");\n".
                      "\$modx->getSettings();",
   
-  'replace'       => "include_once MODX_BASE_PATH.'assets/lib/DocumentParser_Extended.php';\n".
+  'replace'       => "include_once MODX_BASE_PATH.'assets/libs/DocumentParser_Extended.php';\n".
                      "\$modx  = new DocumentParser_Extended();\n".
                      "\$modx->loadExtension(\"ManagerAPI\");\n".
                      "\$modx->getSettings();\n".
