@@ -2,7 +2,7 @@
 /**
  * Multidomain DocumentParser Extended - for MODX Evolution
  * @category  plugin
- * @version   1.0
+ * @version   1.0.1
  * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @author    Marek Srejma (sam_web@yahoo.de)
  */

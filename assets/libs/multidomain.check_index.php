@@ -2,7 +2,7 @@
 /**
  * Multidomain check index - for MODX Evolution
  * @category  plugin
- * @version   1.0
+ * @version   1.0.1
  * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @author    Marek Srejma (sam_web@yahoo.de)
  */
@@ -11,7 +11,7 @@ if (! function_exists('ExtendIndexFile')) {
   function ExtendIndexFile($params) {
     global $modx;
     // name of file storing version information
-      $version_file   =   trim($params['version_file']);
+    $version_file   =   trim($params['version_file']);
     $indexfile_path  =  trim($params['index_path']);
     $search4lines  =  $params['search'];
     $replace2lines  =  $params['replace'];

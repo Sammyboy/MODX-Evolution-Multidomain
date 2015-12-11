@@ -7,10 +7,9 @@ Die Multidomain-Erweiterung für MODX Evolution ermöglicht das Verwalten von mehr
 Installationsanleitung
 ----------------------
 
-1. "assets/lib/DocumentParser_Extended.php" und "assets/lib/multidomain.check_index.php" kopieren und nicht verändern
+1. Das Verzeichnis "assets" des Pakets in das MODX-Installationsverzeichnis kopieren
 
-   Nur wenn man die "domains.xml" in einem anderen Ordner haben will oder anders
-   benennen will, kann man die Variable $xml_file anpassen.
+   Falls man die "domains.xml" in einem anderen Ordner haben oder umbenennen will, kann man in der Datei "assets/libs/DocumentParser_Extended.php" die Variable "$xml_file" anpassen.
 
 2. "assets/files/domains.xml" kopieren und bearbeiten (selbsterklärend)
 
@@ -19,7 +18,7 @@ Installationsanleitung
     Name: multidomainUpdate
 
     Code:
-        include MODX_BASE_PATH."assets/lib/multidomain.check_index.php";
+        include MODX_BASE_PATH."assets/libs/multidomain.check_index.php";
 
     Systemereignisse:
         OnManagerLogin
