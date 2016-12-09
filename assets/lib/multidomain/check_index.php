@@ -1,8 +1,8 @@
-<?php
+<?php defined('IN_MANAGER_MODE') or die('<h1>ERROR:</h1><p>Please use the MODx Content Manager instead of accessing this file directly.</p>');
 /**
  * Multidomain check index - for MODX Evolution
  * @category  plugin
- * @version   1.0.1
+ * @version   1.0.2
  * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @author    Marek Srejma (sam_web@yahoo.de)
  */
@@ -97,7 +97,7 @@ ExtendIndexFile(array(
   
   'search'        => "\$modx = new DocumentParser;",
   
-  'replace'       => "include_once MODX_BASE_PATH.'assets/libs/DocumentParser_Extended.php';\n".
+  'replace'       => "include_once MODX_BASE_PATH.'assets/lib/multidomain/DocumentParser_Extended.php';\n".
                      "\$modx = new DocumentParser_Extended();\n".
                      "\$modx->getSites();"
 ));
@@ -110,7 +110,7 @@ ExtendIndexFile(array(
                      "\$modx->loadExtension(\"ManagerAPI\");\n".
                      "\$modx->getSettings();",
   
-  'replace'       => "include_once MODX_BASE_PATH.'assets/libs/DocumentParser_Extended.php';\n".
+  'replace'       => "include_once MODX_BASE_PATH.'assets/lib/multidomain/DocumentParser_Extended.php';\n".
                      "\$modx  = new DocumentParser_Extended();\n".
                      "\$modx->loadExtension(\"ManagerAPI\");\n".
                      "\$modx->getSettings();\n".

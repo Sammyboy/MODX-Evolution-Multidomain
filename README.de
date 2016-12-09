@@ -9,7 +9,7 @@ Installationsanleitung
 
 1. Das Verzeichnis "assets" des Pakets in das MODX-Installationsverzeichnis kopieren
 
-   Falls man die "domains.xml" in einem anderen Ordner haben oder umbenennen will, kann man in der Datei "assets/libs/DocumentParser_Extended.php" die Variable "$xml_file" anpassen.
+   Falls man die "domains.xml" in einem anderen Ordner haben oder umbenennen will, kann man in der Datei "assets/lib/multidomain/DocumentParser_Extended.php" die Variable "$xml_file" anpassen.
 
 2. "assets/files/domains.xml" kopieren und bearbeiten (selbsterklärend)
 
@@ -18,7 +18,7 @@ Installationsanleitung
     Name: multidomainUpdate
 
     Code:
-        include MODX_BASE_PATH."assets/libs/multidomain.check_index.php";
+        include MODX_BASE_PATH."assets/lib/multidomain/check_index.php";
 
     Systemereignisse:
         OnManagerLogin

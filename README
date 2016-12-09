@@ -9,7 +9,7 @@ Install instructions
 
 1. Copy the assets folder into your MODX Evolution installation folder
 
-   If you want to rename of "domains.xml" or move the file into a different folder, you will need to change the value of the "$xml_file" variable in the file "assets/libs/DocumentParser_Extended.php".
+   If you want to rename of "domains.xml" or move the file into a different folder, you will need to change the value of the "$xml_file" variable in the file "assets/lib/DocumentParser_Extended.php".
 
 2. Edit the file "assets/files/domains.xml" (self explaining) to setup your domain settings
 
@@ -18,7 +18,7 @@ Install instructions
     Name: multidomainUpdate
 
     Code:
-        include MODX_BASE_PATH."assets/libs/multidomain.check_index.php";
+        include MODX_BASE_PATH."assets/lib/multidomain.check_index.php";
 
     Events:
         OnManagerLogin
