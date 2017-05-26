@@ -2,7 +2,7 @@
 /**
  * Multidomain DocumentParser Extended - for MODX Evolution
  * @category  plugin
- * @version   1.0.2
+ * @version   1.0.3
  * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @author    Marek Srejma (sam_web@yahoo.de)
  */
@@ -22,9 +22,9 @@ class DocumentParser_Extended extends DocumentParser {
     $err_msg  = '';
     $xml      = @simplexml_load_file( MODX_BASE_PATH . $xml_file, 'SimpleXMLElement', LIBXML_NOCDATA );
     if ($xml !== false && isset($xml->domain)) {
-      foreach($xml->domain as $d ) {
+      foreach ($xml->domain as $d) {
         if (isset($d->name)) {
-          $domain = new stdClass();
+          $domain = (object)array();
           $domain->name              = (string) $d->name;
           $domain->protocol          = (string) $d->protocol;
           $domain->site_id           = (int)    $d->site_id;

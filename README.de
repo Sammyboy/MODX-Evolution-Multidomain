@@ -59,3 +59,19 @@ Installationsanleitung
     RewriteCond %{HTTP_HOST} .
     RewriteCond %{HTTP_HOST} !^www\. [NC]
     RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+5. Änderung der index.php-Dateien bestätigen:
+
+    Nach der installation und einem Ab- und wieder Anmelden im Manager-Backend erscheint eine Warnung, dass die index.php-Dateien geändert wurden. Hier müssen die Prüfsummen (Checksums) neu generiert werden.
+
+
+PROBLEMBEHEBUNG:
+
+Bei Problemen nach dem Update von einer älteren Version:
+  * Ausloggen aus dem Manager Backend
+  * Die index.php und manager/index.php des originalen MODX-Pakets in des MODX-Installationsverzeichnis auf dem Server laden
+  * Einloggen im Manager Backend
+  * Das Plugin nimmt dann automatisch die nötigen Änderungen in den index.php-Dateien vor
+
+BEKANNTE BUGS:
+  * Die Alias-Namen dürfen nicht die Domain-Namen sein. Siehe https://github.com/Sammyboy/MODX-Evolution-Multidomain/issues/2.

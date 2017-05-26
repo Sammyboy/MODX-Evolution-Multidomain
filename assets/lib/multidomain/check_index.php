@@ -2,7 +2,7 @@
 /**
  * Multidomain check index - for MODX Evolution
  * @category  plugin
- * @version   1.0.2
+ * @version   1.0.3
  * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @author    Marek Srejma (sam_web@yahoo.de)
  */
