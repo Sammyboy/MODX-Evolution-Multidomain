@@ -102,8 +102,9 @@ ExtendIndexFile(array(
                      "\$modx->getSites();"
 ));
 
+require(MODX_BASE_PATH.'assets/cache/siteManager.php');
 ExtendIndexFile(array(
-  'index_path'    => 'manager/',
+  'index_path'    =>  MGR_DIR.'/',
   'version_file'  => 'assets/files/.manager_index.php.md5',
   
   'search'        => "\$modx = new DocumentParser;\n".
